@@ -1,0 +1,17 @@
+{
+    "name": "fizzday/multiprocess",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "fizz",
+            "email": "864759073@qq.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Fizzday\\MultiProcess\\": "src/"
+        }
+    }
+}
