@@ -5,19 +5,19 @@ namespace Fizzday\MultiProcess;
 abstract class MultiProcess
 {
     /**
-     * 数据总数量
+     * all datas num(数据总数量)
      * @var int
      */
     public $pcntl_total;
 
     /**
-     * 每一次发送的数据总数量
+     * every circle total mum (每一次的数据总量)
      * @var int
      */
     public $pcntl_perTotalNum;
 
     /**
-     * 计划使用总进程数
+     * total process (总进程数)
      * @var int
      */
     public $pcntl_num;
@@ -81,8 +81,8 @@ abstract class MultiProcess
 
     /**
      * 集成后重写的具体操作
-     * @param $i num 第几次循环
-     * @param $j num 本次循环的第几个进程
+     * @param $j the process num(第几个进程)
+     * @param $i the circle num (第几次循环)
      */
     abstract public function myAct($j, $i);
 }

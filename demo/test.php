@@ -1,34 +1,21 @@
 <?php
 
-
-
 require __DIR__ . '/../vendor/autoload.php';
 use Fizzday\MultiProcess\MultiProcess;
 
-
-class myPcntl extends MultiProcess
+class MyMulti extends MultiProcess
 {
-//    public function testPcntl()
-//    {
-//        $this->pcntl_total       = 100000;
-//        $this->pcntl_perTotalNum = 10000;
-//        $this->pcntl_num         = 100;
-//
-//        $this->pcntlAct();
-//    }
-//        public $b = 0;
-
     /**
      * 集成后重写的具体操作
      * @param $i num 第几次循环
      * @param $j num 本次循环的第几个进程
      */
-    public function pcntlTrue($j, $i)
+    public function myAct($j, $i)
     {
 //        $b = 0;
         for ($a = 0; $a < ($this->pcntl_perTotalNum / $this->pcntl_num); $a++) {
 //            $this->b ++;
-            $requestUrl = 'http://www.fydviphzb.com/huiyuan/server/regmsg.aspx';
+            $requestUrl = 'http://www.test.com';
             $post_data  = ['phone' => '132123' . mt_rand(10000, 99999)];
             $aa         = explode("\r\n", curl_post($requestUrl, $post_data));
 //        echo $i.' -- '.$aa[0]."\r\n";
@@ -42,9 +29,9 @@ class myPcntl extends MultiProcess
 }
 
 // 开始使用
-$myPcntl = new myPcntl(100000, 10000, 100);
+$myPcntl = new MyMulti(100000, 10000, 100);
 
-$myPcntl->pcntlAct();
+$myPcntl->run();
 
 //$proxy = [
 //    'ip'    => '112.65.219.'.mt_rand(1, 255),
