@@ -1,6 +1,6 @@
 {
     "name": "fizzday/multiprocess",
-    "description": "the php multi process library depend on the pcntl php extension(php多进程类, 基于php的pcntl扩展)",
+    "description": "the php multi process library depend on the pcntl php extension (php多进程类, 基于php的pcntl扩展)",
     "keywords": ["multi", "process", "pcntl", "php"],
     "type": "library",
     "license": "MIT",
