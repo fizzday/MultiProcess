@@ -6,26 +6,25 @@ use Fizzday\MultiProcess\MultiProcess;
 //echo time();
 // 设置将要开启的进程数
 $process = 100;
-$res     = MultiProcess::setProcess($process)->run(function ($p) use ($process) {
+MultiProcess::setProcess($process)->run(function ($p) use ($process) {
     // 数据总量
     $total = 10000;
     // 每个进程对应要处理的数据总量
     $perProcessNum = $total / $process;
-
-    $start = $p * $perProcessNum;     // 开始处理数据的索引(包含开头)
-    $end   = $start + $perProcessNum;   // 结束处理数据的索引(不包含结尾)
+    // 开始处理数据的索引(包含开头)
+    $start = $p * $perProcessNum;
+    // 结束处理数据的索引(不包含结尾)
+    $end   = $start + $perProcessNum;
 
     // 模拟将要处理的数据
-    $data = array();
-    for ($a = 0; $a < $total; $a++) {
-        $data[] = $a . 'aa';
-    }
+//    $data = array();
+//    for ($a = 0; $a < $total; $a++) {
+//        $data[] = $a . 'aa';
+//    }
 
     // 开始处理数据
     $data_return = '';
     for ($i = $start; $i < $end; $i++) {
-//        $data_return .= '进程编号:' . $p . '-处理数据:' . $data[$i] . PHP_EOL;
-
         $mobile = 13;
         $mobile .= mt_rand(10000, 99999).mt_rand(1000, 9999);
 
@@ -36,18 +35,15 @@ $res     = MultiProcess::setProcess($process)->run(function ($p) use ($process) 
 
     $data_return .= PHP_EOL;
 
-    $file = './log.txt';
+    $file = './log2.txt';
     file_set($file, $data_return);
 
+    // 实时输出
     echo $data_return;
-
+    // 如果想接收返回值, 就去掉输出, 改为返回
 //    return $data_return;
 });
 
-
-//print_r($res);
-
-//echo time();
 function file_set($file, $data, $mode = 'a')
 {
     if (!$file || !$data) return false;

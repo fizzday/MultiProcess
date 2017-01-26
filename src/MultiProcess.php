@@ -1,7 +1,10 @@
 <?php
-
 namespace Fizzday\MultiProcess;
-
+/**
+ * 多进程类库
+ * Class MultiProcess
+ * @package Fizzday\MultiProcess
+ */
 class MultiProcess
 {
     /**
@@ -45,11 +48,7 @@ class MultiProcess
                     // 开启子进程成功, 做相应操作
                     $act($i);
                     exit;
-
-                default:
-                    break;
             }
-
         }
 
         // 等待子进程退出并回收
@@ -60,4 +59,3 @@ class MultiProcess
         }
     }
 }
-
